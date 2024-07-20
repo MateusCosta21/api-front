@@ -1,9 +1,17 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor() { }
+  private apiUrl = 'http://192.168.0.7:9009/api/user/';
+
+  constructor(private http: HttpClient) { }
+
+  getUser(username: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}${username}`);
+  }
 }
