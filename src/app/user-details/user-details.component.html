@@ -1,14 +1,39 @@
-<div *ngIf="user">
-    <h1>{{ user.name }}</h1>
-    <img [src]="user.avatar_url" alt="{{ user.name }}'s avatar" width="100">
-    <p><strong>Login:</strong> {{ user.login }}</p>
-    <p><strong>Bio:</strong> {{ user.bio }}</p>
-    <p><strong>Location:</strong> {{ user.location }}</p>
-    <p><strong>Company:</strong> {{ user.company || 'N/A' }}</p>
-    <p><strong>Email:</strong> {{ user.email || 'N/A' }}</p>
-    <p><strong>Public Repos:</strong> {{ user.public_repos }}</p>
-    <p><strong>Followers:</strong> {{ user.followers }}</p>
-    <p><strong>Following:</strong> {{ user.following }}</p>
-    <p><strong>GitHub URL:</strong> <a [href]="user.html_url" target="_blank">{{ user.html_url }}</a></p>
+<div class="container mt-4" *ngIf="user">
+  <div class="card">
+    <div class="card-header">
+      <h2>Dados do Usuário</h2>
+    </div>
+    <div class="card-body text-center">
+      <img [src]="user.avatar_url" alt="{{ user.name }}'s avatar" class="rounded-circle mb-3" width="150">
+      <h4>{{ user.name }}</h4>
+      <p><strong>Username:</strong> {{ user.login }}</p>
+      <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#bioModal">
+        Ver Bio
+      </button>
+      <p><strong>GitHub:</strong> <a [href]="user.html_url" target="_blank">{{ user.html_url }}</a></p>
+      <p><strong>Blog:</strong> <a [href]="user.blog" target="_blank">{{ user.blog || 'N/A' }}</a></p>
+      <p><strong>Empresa:</strong> {{ user.company || 'N/A' }}</p>
+      <p><strong>Localização:</strong> {{ user.location || 'N/A' }}</p>
+      <p><strong>Repositórios Públicos:</strong> {{ user.public_repos }}</p>
+      <p><strong>Followers:</strong> {{ user.followers }}</p>
+      <p><strong>Following:</strong> {{ user.following }}</p>
+    </div>
   </div>
-  
+</div>
+
+<div class="modal fade" id="bioModal" tabindex="-1" aria-labelledby="bioModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bioModalLabel">Bio</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{ user.bio }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
