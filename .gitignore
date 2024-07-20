@@ -25,4 +25,4 @@ Homestead.json
 /.idea
 /postgres-data/
 docker-compose.yml
-/.angular/
+/.angular/cache
