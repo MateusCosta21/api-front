@@ -22,14 +22,15 @@
   
   <div class="card mt-4">
     <div class="card-header">
-      <h3>Seguidores</h3>
+      <h3>Seguindo</h3>
       <input type="text" class="form-control" placeholder="Pesquisar seguidores..." [(ngModel)]="searchQuery">
     </div>
-    <script></script>
     <div class="card-body">
-      <div *ngFor="let follower of filteredFollowing" class="follower-item mb-2">
-        <img [src]="follower.avatar_url" alt="{{ follower.login }}'s avatar" class="rounded-circle" width="50">
-        <a [href]="follower.html_url" target="_blank">{{ follower.login }}</a>
+      <div class="follower-list">
+        <div *ngFor="let follower of filteredFollowing" class="follower-item mb-2">
+          <img [src]="follower.avatar_url" alt="{{ follower.login }}'s avatar" class="rounded-circle" width="50">
+          <a [href]="follower.html_url" target="_blank">{{ follower.login }}</a>
+        </div>
       </div>
     </div>
   </div>
