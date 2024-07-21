@@ -7,11 +7,15 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private apiUrl = 'http://192.168.0.7:9009/api/user/';
+  private apiUrl = 'http://localhost:9009/api/user/';
 
   constructor(private http: HttpClient) { }
 
   getUser(username: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}${username}`);
+  }
+
+  getUserFollowing(username: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}${username}/followings`);
   }
 }
