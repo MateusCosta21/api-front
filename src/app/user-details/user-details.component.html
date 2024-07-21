@@ -22,7 +22,7 @@
   
   <div class="card mt-4">
     <div class="card-header">
-      <h3>Seguindo</h3>
+      <h3>Following</h3>
       <input type="text" class="form-control" placeholder="Pesquisar seguidores..." [(ngModel)]="searchQuery">
     </div>
     <div class="card-body">
@@ -44,7 +44,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        {{ user.bio }}
+        {{ user?.bio ? user.bio : '' }}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
