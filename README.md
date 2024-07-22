@@ -1,27 +1,40 @@
-# ApiFront
+# API-FRONT
+## Contexto
+Mostrar usuário informações de determinados usuários no git consumindo uma api laravel
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
+## Tecnologias
 
-## Development server
+- AngularJs - Framework JavaScript para front-end
+- Docker(Com Apache, Nginx e NodeJS) - O Docker permite que você separe seus aplicativos de sua infraestrutura para que você possa entregar software rapidamente.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Instalação
 
-## Code scaffolding
+##### Requisito obrigátorio
+Antes de tudo você precisa ter o docker e o docker-compose e também o git.
+Caso não tenha instalado, aqui alguns links de referência:
+- Aqui encontra os passos para instalação do Docker => https://docs.docker.com/get-docker/ 
+- Aqui encontra os passos para instalação do Docker Compose => https://docs.docker.com/compose/ 
+- Aqui encontra os passos para instalação do git => https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+##### Clone o projeto
+Com o git instalado e em um diretório da sua escolha, baixe o projeto:
 
-## Build
+```sh
+git clone https://github.com/MateusCosta21/api-front.git
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+##### Suba o serviço
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Primeiro copie o docker-compose-example para conseguir executar o container
+```sh
+cp docker-compose-example.yml docker-compose.yml
+```
 
-## Running end-to-end tests
+Em seguida, com o Docker-compose instalado, execute esse comando na raiz do projeto:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```sh
+docker-compose up -d --build
+```
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Pronto, agora basta acessar a url. (Importante deixar na mesma porta) com o usuario do git. Se tudo estiver de acordo o projeto irá funcionar
