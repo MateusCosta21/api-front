@@ -34,7 +34,7 @@ cp docker-compose-example.yml docker-compose.yml
 Em seguida, com o Docker-compose instalado, execute esse comando na raiz do projeto:
 
 ```sh
-docker-compose up -d --build
+docker-compose up --build
 ```
 
 Pronto, agora basta acessar a url. (Importante deixar na mesma porta) com o usuario do git. Se tudo estiver de acordo o projeto irá funcionar
