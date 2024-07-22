@@ -1,0 +1,54 @@
+<div class="container mt-4" *ngIf="user">
+  <div class="card">
+    <div class="card-header">
+      <h2>Dados do Usuário</h2>
+    </div>
+    <div class="card-body text-center">
+      <img [src]="user.avatar_url" alt="{{ user.name }}'s avatar" class="rounded-circle mb-3" width="150">
+      <h4>{{ user.name }}</h4>
+      <p><strong>Username:</strong> {{ user.login }}</p>
+      <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#bioModal">
+        Ver Bio
+      </button>
+      <p><strong>GitHub:</strong> <a [href]="user.html_url" target="_blank">{{ user.html_url }}</a></p>
+      <p><strong>Blog:</strong> <a [href]="user.blog" target="_blank">{{ user.blog || 'N/A' }}</a></p>
+      <p><strong>Empresa:</strong> {{ user.company || 'N/A' }}</p>
+      <p><strong>Localização:</strong> {{ user.location || 'N/A' }}</p>
+      <p><strong>Repositórios Públicos:</strong> {{ user.public_repos }}</p>
+      <p><strong>Followers:</strong> {{ user.followers }}</p>
+      <p><strong>Following:</strong> {{ user.following }}</p>
+    </div>
+  </div>
+  
+  <div class="card mt-4">
+    <div class="card-header">
+      <h3>Following</h3>
+      <input type="text" class="form-control" placeholder="Pesquisar seguidores..." [(ngModel)]="searchQuery">
+    </div>
+    <div class="card-body">
+      <div class="follower-list">
+        <div *ngFor="let follower of filteredFollowing" class="follower-item mb-2">
+          <img [src]="follower.avatar_url" alt="{{ follower.login }}'s avatar" class="rounded-circle" width="50">
+          <a [href]="follower.html_url" target="_blank">{{ follower.login }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="bioModal" tabindex="-1" aria-labelledby="bioModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bioModalLabel">Bio</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{ user?.bio ? user.bio : '' }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
